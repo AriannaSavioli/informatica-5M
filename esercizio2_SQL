@@ -1,6 +1,8 @@
-#query 1 
+#testo esercizio: utilizzando le tabelle create nell'Esercizio 1, scrivi query SQL per:
+
+#query 1: selezionare tutti i libri
 SELECT * FROM Libri;
-#query 2
+#query 2: selezionare solo il titolo e l'autore dei libri pubblicati dopo il 2000
 SELECT Titolo, Autore FROM Libri WHERE AnnoPubblicazione > 2000;
-#query 3
+#query 3: selezionare tutti i clienti il cui cognome inizia con 'S'
 SELECT * FROM Clienti WHERE Cognome LIKE 'S%';
