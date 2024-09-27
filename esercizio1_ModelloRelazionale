@@ -1,5 +1,6 @@
-#identificazione di entita, attributi e relazioni
+#testo esercizio: una piccola libreria vuole creare un database per gestire i suoi libri e clienti
 
+#identificazione di entita, attributi e relazioni
 Cliente(IDcliente, Nome, Cognome, Email)
 Ordine(IDordine, Data, IDcliente)
 Libro(ISBN, Titolo, Autore, Prezzo)
