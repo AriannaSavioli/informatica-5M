@@ -1,0 +1,8 @@
+#identificazione di entita, attributi e relazioni
+
+Cliente(IDcliente, Nome, Cognome, Email)
+Ordine(IDordine, Data, IDcliente)
+Libro(ISBN, Titolo, Autore, Prezzo)
+Relazioni:
+- (relazione uno-a-molti tra Cliente e Ordine) un cliente puo effettuare piu ordini
+- (relazione molti-a-molti tra Ordine e Libro) un ordine puo includere piu libri
