@@ -1,0 +1,25 @@
+#analisi e miglioramento di uno schema
+
+Cliente(ID, Nome, Cognome, Email)
+Ordine(NumeroOrdine, DataOrdine, Totale, ClienteID)
+ProdottoOrdine(ID, NumeroOrdine, NomeProdotto, Quantità, Prezzo)
+
+Analisi dello schema esistente:
+1. La tabella `ProdottoOrdine` contiene sia l'ID del prodotto che il nome del prodotto, basterebbe uno dei due per non essere ripetitivi
+2. Non esiste una tabella separata per i prodotti, quindi non è possibile gestire un catalogo di prodotti separatamente dagli ordini
+3. La relazione tra `Ordine` e `ProdottoOrdine` non è definita in modo chiaro
+
+Proposte di miglioramento:
+1. Creare una tabella separata per i prodotti per evitare di essere ripetitivi e utilizzare dati inutili
+2. Modificare la tabella `ProdottoOrdine` per fare riferimento alla nuova tabella `Prodotto` tramite un ID prodotto
+3. Aggiungere una tabella `DettaglioOrdine` per gestire la relazione molti-a-molti tra `Ordine` e `Prodotto`
+
+Nuovo schema relazionale:
+Cliente(IDcliente, Nome, Cognome, Email)
+Ordine(IDordine, DataOrdine, Totale, IDcliente)
+Prodotto(IDprodotto, NomeProdotto, Prezzo)
+DettaglioOrdine(IDdettaglio, IDordine, IDprodotto, Quantità, Prezzo)
+
+Relazioni:
+- (relazione uno-a-molti tra Cliente e Ordine) un cliente può effettuare più ordini
+- (relazione molti-a-molti tra Ordine e Prodotto tramite DettaglioOrdine) un ordine può includere più prodotti e un prodotto può essere incluso in più ordini
