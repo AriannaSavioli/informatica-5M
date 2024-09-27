@@ -1,3 +1,5 @@
+#testo esercizio: crea un database per una piccola libreria
+
 #creazione tabella libri
 CREATE TABLE Libri (
     ID INT PRIMARY KEY,
