@@ -1,0 +1,6 @@
+#query 1 
+SELECT * FROM Libri;
+#query 2
+SELECT Titolo, Autore FROM Libri WHERE AnnoPubblicazione > 2000;
+#query 3
+SELECT * FROM Clienti WHERE Cognome LIKE 'S%';
