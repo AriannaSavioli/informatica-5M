@@ -1,0 +1,20 @@
+#creazione tabella libri
+CREATE TABLE Libri (
+    ID INT PRIMARY KEY,
+    Titolo VARCHAR(100),
+    Autore VARCHAR(50),
+    AnnoPubblicazione INT
+);
+#creazione tabella clienti
+CREATE TABLE Clienti (
+    ID INT PRIMARY KEY,
+    Nome VARCHAR(50),
+    Cognome VARCHAR(50),
+    Email VARCHAR(100)
+);
+#inserimento dati libri
+INSERT INTO Libri (ID, Titolo, Autore, AnnoPubblicazione)
+VALUES (1, '1984', 'George Orwell', 1949);
+#inserimento dati clienti
+INSERT INTO Clienti (ID, Nome, Cognome, Email)
+VALUES (1, 'Filippo', 'Rossi', 'filippo.rossi@gmail.com');
