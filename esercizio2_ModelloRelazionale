@@ -1,10 +1,10 @@
-#creazione di uno schema relazionale
+#testo esercizio: un'università vuole creare un database per gestire corsi, studenti e professori
 
+#creazione di uno schema relazionale
 Studente(Matricola, Nome, Cognome, DataNascita, Email)
 Corso(CodiceCorso, NomeCorso, CFU, AnnoAccademico)
 Professore(IDprofessore, Nome, Cognome, Email, Dipartimento)
 Dipartimento(IDdipartimento, Nome, Facolta)
-
 Relazioni:
 - (relazione uno-a-molti tra Dipartimento e Professore) un dipartimento può avere più professori
 - (relazione uno-a-molti tra Professore e Corso) un professore può insegnare più corsi
