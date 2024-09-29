@@ -1,0 +1,22 @@
+testo esercizio: aggiornare i dati 
+
+import sqlite3
+
+def aggiorna_eta(nome, nuova_eta):
+    # connessione al database
+    conn = sqlite3.connect('persone.db')
+    cursor = conn.cursor()
+    # aggiornamento dell'età della persona specificata
+    cursor.execute("UPDATE persone SET eta = ? WHERE nome = ?", (nuova_eta, nome))
+    # conferma dell'aggiornamento
+    conn.commit()
+    # recupero del record aggiornato
+    cursor.execute("SELECT * FROM persone WHERE nome = ?", (nome,))
+    record_aggiornato = cursor.fetchall()
+    # chiusura della connessione
+    conn.close()
+    # stampa del record aggiornato
+    print(record_aggiornato)
+    return record_aggiornato
+# esempio di utilizzo
+aggiorna_eta('Mario', 35)
