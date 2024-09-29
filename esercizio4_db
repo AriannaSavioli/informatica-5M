@@ -1,0 +1,24 @@
+testo esercizio: eliminare un record
+
+import sqlite3
+
+def elimina_persona(nome):
+    # connessione al database
+    conn = sqlite3.connect('persone.db')
+    cursor = conn.cursor()
+    # esecuzione della query DELETE con condizione WHERE
+    cursor.execute("DELETE FROM persone WHERE nome = ?", (nome,))
+    # conferma dell'eliminazione
+    conn.commit()
+    # recupero e stampa dei record rimanenti
+    cursor.execute("SELECT * FROM persone")
+    records = cursor.fetchall()
+    # chiusura della connessione
+    conn.close()
+    # stampa dei record rimanenti
+    for record in records:
+        print(record)
+    return records
+# esempio di utilizzo
+if __name__ == "__main__":
+    elimina_persona('Mario')
