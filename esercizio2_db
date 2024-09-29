@@ -1,0 +1,20 @@
+testo esercizio: filtrare i dati per citta
+
+import sqlite3
+
+def persone_per_citta(citta):
+    # connessione al database SQLite
+    conn = sqlite3.connect('persone.db')
+    cursor = conn.cursor()
+    # esecuzione della query con parametro
+    cursor.execute("SELECT nome, eta, citta FROM persone WHERE citta = ?", (citta,))
+    # recupero dei risultati
+    risultati = cursor.fetchall()   
+    # chiusura della connessione
+    conn.close()   
+    return risultati
+# esempio di utilizzo
+if __name__ == "__main__":
+    citta = 'Roma'
+    persone = persone_per_citta(citta)
+    print(persone)
