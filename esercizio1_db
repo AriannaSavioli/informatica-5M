@@ -1,0 +1,35 @@
+testo esercizio: crea una tabella persona
+
+import sqlite3
+
+# creazione del database e della tabella
+def crea_database():
+    conn = sqlite3.connect('persone.db')
+    cursor = conn.cursor() 
+    # creazione della tabella Persona
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Persona (
+            nome TEXT,
+            eta INT,
+            citta TEXT
+        )
+    ''')
+    # inserimento dei dati di esempio
+    cursor.execute("INSERT INTO Persona (nome, eta, citta) VALUES ('Mario', 30, 'Roma')")
+    cursor.execute("INSERT INTO Persona (nome, eta, citta) VALUES ('Luigi', 25, 'Milano')")
+    cursor.execute("INSERT INTO Persona (nome, eta, citta) VALUES ('Anna', 22, 'Roma')")
+    conn.commit()
+    conn.close()
+# funzione per restituire tutte le persone presenti nel database
+def tutte_le_persone():
+    conn = sqlite3.connect('persone.db')
+    cursor = conn.cursor()   
+    cursor.execute("SELECT * FROM Persona")
+    persone = cursor.fetchall()  
+    conn.close()
+    return persone
+# creazione del database e inserimento dei dati
+crea_database()
+# esempio di utilizzo della funzione tutte_le_persone
+persone = tutte_le_persone()
+print(persone)
