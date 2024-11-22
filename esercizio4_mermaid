@@ -1,0 +1,82 @@
+#PRIMO SCENARIO
+
+erDiagram
+    PRODOTTO {
+        int ID
+        string Nome
+        string Descrizione
+        float Prezzo
+        string Categoria
+    }
+    CLIENTE {
+        int ID
+        string Nome
+        string Cognome
+        string Email
+        string Indirizzo
+    }
+    ORDINE {
+        int ID
+        date DataOrdine
+        date DataConsegna
+        string Stato
+    }
+    RECENSIONE {
+        int ID
+        int Punteggio
+        date Data
+        string Commento
+    }
+    ORDINE_PRODOTTO {
+        int OrdineID
+        int ProdottoID
+    }
+
+    CLIENTE ||--o{ ORDINE : effettua
+    ORDINE ||--o{ ORDINE_PRODOTTO : contiene
+    PRODOTTO ||--o{ ORDINE_PRODOTTO : incluso
+    CLIENTE ||--o{ RECENSIONE : scrive
+    PRODOTTO ||--o{ RECENSIONE : riceve
+
+#SECONDO SCENARIO
+
+erDiagram
+    PRODOTTO {
+        int ID_Prodotto PK 
+        string Nome
+        string Descrizione
+        float Prezzo
+        string Categoria
+    }
+    CLIENTE {
+        int ID_Cliente PK
+        string Nome
+        string Cognome
+        string Email
+        string Indirizzo
+    }
+    ORDINE {
+        int ID_Ordine PK
+        date DataOrdine
+        date DataConsegna
+        string Stato
+        int ID_Cliente FK
+    }
+    RECENSIONE {
+        int ID_Recensione PK
+        int Punteggio
+        date Data
+        string Commento
+        int ID_Cliente FK
+        int ID_Prodotto FK
+    }
+    ORDINE_PRODOTTO {
+        int OrdineID PK,FK
+        int ProdottoID PK,FK
+    }
+
+    CLIENTE ||--o{ ORDINE : effettua
+    ORDINE ||--o{ ORDINE_PRODOTTO : contiene
+    PRODOTTO ||--o{ ORDINE_PRODOTTO : incluso
+    CLIENTE ||--o{ RECENSIONE : scrive
+    PRODOTTO ||--o{ RECENSIONE : riceve
