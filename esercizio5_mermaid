@@ -1,5 +1,6 @@
-#PRIMO SCENARIO
+### Version 1
 
+```mermaid
 erDiagram
     PRODOTTO {
         int ID
@@ -37,9 +38,11 @@ erDiagram
     PRODOTTO ||--o{ ORDINE_PRODOTTO : incluso
     CLIENTE ||--o{ RECENSIONE : scrive
     PRODOTTO ||--o{ RECENSIONE : riceve
+```
 
-#SECONDO SCENARIO
+### Version 2
 
+```mermaid
 erDiagram
     PRODOTTO {
         int ID_Prodotto PK 
@@ -80,3 +83,4 @@ erDiagram
     PRODOTTO ||--o{ ORDINE_PRODOTTO : incluso
     CLIENTE ||--o{ RECENSIONE : scrive
     PRODOTTO ||--o{ RECENSIONE : riceve
+```
