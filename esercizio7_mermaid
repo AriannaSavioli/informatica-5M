@@ -1,0 +1,58 @@
+erDiagram
+    MEDICO {
+        int ID_Medico PK
+        string Nome
+        string Cognome
+        string Email
+        string Specializzazioni
+    }
+    PAZIENTE {
+        int ID_Paziente PK
+        string Nome
+        string Cognome
+        string Email
+        string Indirizzo
+    }
+    VISITA {
+        int ID_Visita PK
+        date DataVisita
+        string TipoVisita
+        int Durata
+        string Descrizione
+        int ID_Medico FK
+        int ID_Paziente FK
+    }
+    SPECIALIZZAZIONE {
+        int ID_Specializzazione PK
+        string NomeSpecializzazione
+    }
+    CARTELLA_CLINICA {
+        int ID_Cartella PK
+        string Diagnosi
+        string Trattamento
+        date DataAggiornamento
+        int ID_Paziente FK
+        int ID_Medico FK
+    }
+    PRENOTAZIONE {
+        int ID_Prenotazione PK
+        date DataPrenotazione
+        string MotivoVisita
+        int ID_Medico FK
+        int ID_Paziente FK
+    }
+    RISORSA_CLINICA {
+        int ID_Risorsa PK
+        string NomeRisorsa
+        string Tipo
+        string Disponibilita
+    }
+
+    PAZIENTE ||--o{ PRENOTAZIONE : effettua
+    MEDICO ||--o{ VISITA : esegue
+    PAZIENTE ||--o{ VISITA : partecipa
+    MEDICO ||--o{ CARTELLA_CLINICA : aggiorna
+    PAZIENTE ||--o{ CARTELLA_CLINICA : appartiene
+    MEDICO ||--o{ SPECIALIZZAZIONE : ha
+    SPECIALIZZAZIONE ||--o{ MEDICO : competente 
+    RISORSA_CLINICA ||--o{ VISITA : utilizzata
