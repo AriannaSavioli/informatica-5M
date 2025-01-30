@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Room List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Type</th>
+            <th>Available</th>
+            <th>Price</th>
+            <th>Number of Beds</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.numero }}</td>
+            <td>{{ entry.tipo }}</td>
+            <td>{{ 'Yes' if entry.disponibile else 'No' }}</td>
+            <td>{{ entry.prezzo }}</td>
+            <td>{{ entry.numero_posti }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('add_entries') }}">Add New Room</a>
+<a href="{{ url_for('book_entries') }}">Book a Room</a>
+<a href="{{ url_for('list_bookings') }}">View Bookings</a>
+{% endblock %}
